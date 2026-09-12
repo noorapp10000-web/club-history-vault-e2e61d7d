@@ -270,5 +270,9 @@ export const SOURCES = [
     url: "https://www.transfermarkt.com/el-masry-sc/rekordspieler/verein/9094",
   },
   { label: "ويكيبيديا — Al Masry SC", url: "https://en.wikipedia.org/wiki/Al_Masry_SC" },
+  {
+    label: "ويكيبيديا — الأكثر تهديفًا في الدوري",
+    url: "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A",
+  },
   { label: "ويكيميديا كومنز — الصور التاريخية", url: "https://commons.wikimedia.org/" },
 ];
