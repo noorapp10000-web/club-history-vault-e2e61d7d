@@ -342,7 +342,7 @@ function Presidents() {
             <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-secondary text-[11px] font-black text-muted-foreground">
               {i + 1}
             </span>
-            <Portrait src={null} name={p.name} className="size-11" />
+            <Portrait src={PRESIDENT_PHOTOS[p.name] ?? null} name={p.name} className="size-11" />
             <div className="min-w-0 flex-1">
               <p className="text-sm font-black">{p.name}</p>
               <p className="text-[11px] text-muted-foreground">
@@ -354,9 +354,47 @@ function Presidents() {
         ))}
       </ol>
       <p className="text-[10px] text-muted-foreground">
-        ملاحظة: لا تتوفر صور رسمية حرة الاستخدام لمعظم رؤساء النادي في المصادر الموثوقة، لذلك نعرض
-        أحرف الاسم بدل صور غير مؤكدة.
+        ملاحظة: الصور المتوفرة من أرشيف النادي لبعض الرؤساء فقط، وباقي الأسماء تُعرض بأحرف الاسم حتى
+        تتوفر صورة موثّقة.
       </p>
+    </>
+  );
+}
+
+function TopScorers() {
+  return (
+    <>
+      <SectionHeading icon={<Target className="size-4" />} title="أفضل 10 هدافين في التاريخ" />
+      <p className="text-[11px] text-muted-foreground">
+        الأكثر تهديفًا للنادي المصري في بطولة الدوري — المصدر ويكيبيديا، آخر تحديث 30 مايو 2019.
+      </p>
+      <ol className="space-y-2">
+        {TOP_SCORERS.map((s) => (
+          <li
+            key={s.rank}
+            className={`flex items-center gap-3 rounded-2xl border bg-card p-3 ${
+              s.rank <= 3 ? "border-accent/40" : "border-border/70"
+            }`}
+          >
+            <span
+              className={`flex size-7 shrink-0 items-center justify-center rounded-full text-[11px] font-black ${
+                s.rank <= 3 ? "bg-accent/20 text-accent" : "bg-secondary text-muted-foreground"
+              }`}
+            >
+              {s.rank}
+            </span>
+            <Portrait src={s.photo} name={s.name} className="size-12" />
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-sm font-black">{s.name}</p>
+              <p className="text-[11px] text-muted-foreground">هداف تاريخي في الدوري</p>
+            </div>
+            <div className="text-left">
+              <p className="text-base font-black text-primary">{s.goals}</p>
+              <p className="text-[10px] text-muted-foreground">هدف</p>
+            </div>
+          </li>
+        ))}
+      </ol>
     </>
   );
 }
@@ -364,7 +402,38 @@ function Presidents() {
 function Legends() {
   return (
     <>
-      <SectionHeading icon={<Star className="size-4" />} title="الأكثر مشاركة في تاريخ النادي" />
+      <SectionHeading icon={<Star className="size-4" />} title="أساطير النسور الخضراء" />
+      <p className="text-[11px] text-muted-foreground">
+        أسماء صنعت وجدان جمهور بورسعيد وحفرت اسمها في تاريخ النادي المصري.
+      </p>
+      <div className="grid gap-2">
+        {LEGENDS.map((l) => (
+          <article
+            key={l.name}
+            className="flex items-start gap-3 rounded-2xl border border-border/70 bg-card p-4"
+          >
+            <Portrait src={l.photo} name={l.name} className="size-16" />
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-sm font-black">{l.name}</h3>
+                <Badge variant="outline" className="border-primary/40 text-[10px] font-bold text-primary">
+                  {l.role}
+                </Badge>
+              </div>
+              {l.era && <p className="text-[11px] text-muted-foreground">{l.era}</p>}
+              <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground">{l.note}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function MostApps() {
+  return (
+    <>
+      <SectionHeading icon={<Users className="size-4" />} title="الأكثر مشاركة في تاريخ النادي" />
       <p className="text-[11px] text-muted-foreground">
         ترتيب اللاعبين حسب عدد المباريات مع المصري وفق Transfermarkt (منذ بدء تسجيل الإحصاءات).
       </p>
@@ -392,6 +461,7 @@ function Legends() {
     </>
   );
 }
+
 
 function Identity() {
   return (
