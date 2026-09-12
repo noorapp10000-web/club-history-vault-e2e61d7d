@@ -8,8 +8,10 @@ import {
   Landmark,
   ShieldCheck,
   Star,
+  Target,
   Trophy,
   UserCog,
+  Users,
 } from "lucide-react";
 
 import { SectionHeading } from "@/components/hub/shared";
@@ -17,7 +19,9 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { COACH_HISTORY, RECORD_PLAYERS } from "@/lib/history-data";
 import { HONOURS, IDENTITY, PRESIDENTS, SOURCES, TIMELINE } from "@/lib/history-content";
+import { LEGENDS, PRESIDENT_PHOTOS, TOP_SCORERS } from "@/lib/history-people";
 import { TEAM_CREST } from "@/lib/hub-types";
+
 
 export const Route = createFileRoute("/history")({
   head: () => ({
