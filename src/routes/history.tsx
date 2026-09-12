@@ -91,7 +91,9 @@ function HistoryPage() {
               { v: "honours", t: "البطولات", i: Trophy },
               { v: "coaches", t: "المدربون", i: UserCog },
               { v: "presidents", t: "الرؤساء", i: Crown },
+              { v: "scorers", t: "الهدافون", i: Target },
               { v: "legends", t: "الأساطير", i: Star },
+              { v: "apps", t: "الأكثر مشاركة", i: Users },
               { v: "identity", t: "الهوية", i: ShieldCheck },
             ].map(({ v, t, i: Icon }) => (
               <TabsTrigger
@@ -122,13 +124,22 @@ function HistoryPage() {
           <Presidents />
         </TabsContent>
 
+        <TabsContent value="scorers" className="space-y-3">
+          <TopScorers />
+        </TabsContent>
+
         <TabsContent value="legends" className="space-y-3">
           <Legends />
+        </TabsContent>
+
+        <TabsContent value="apps" className="space-y-3">
+          <MostApps />
         </TabsContent>
 
         <TabsContent value="identity" className="space-y-3">
           <Identity />
         </TabsContent>
+
       </Tabs>
 
       <Sources />
